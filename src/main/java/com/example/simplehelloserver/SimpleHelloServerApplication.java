@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class SimpleHelloServerApplication {
+    
+    private int counter = 0;
 
     public static void main(String[] args) {
         SpringApplication.run(SimpleHelloServerApplication.class, args);
@@ -15,7 +17,8 @@ public class SimpleHelloServerApplication {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello World";
+        counter++;
+        return "Hello World: counter = " + counter;
     }
 
 }
